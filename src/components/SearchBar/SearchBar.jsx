@@ -1,4 +1,4 @@
-import styles from '../styles/SearchBar.module.css';
+import styles from './SearchBar.module.css';
 import { useState } from 'react';
 
 const SearchBar = () => {
