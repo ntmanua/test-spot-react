@@ -1,13 +1,11 @@
 import styles from './SearchBar.module.css';
 import { useState } from 'react';
 
-const SearchBar = () => {
-    const [term, setTerm] = useState('');
-
-    const handleSubmit = (event) => {
+function SearchBar({ term, setTerm, onSubmit }) {
+    const handleFormSubmit = (event) => {
         event.preventDefault();
 
-        onsubmit(term);
+        onSubmit(term);
     };
 
     const handleChange = (event) => {
@@ -17,13 +15,13 @@ const SearchBar = () => {
     return (
         <div className={styles.container}>
             <div className={styles.searchBar}>
-                <form onSubmit={handleSubmit}>
+                <form onSubmit={handleFormSubmit}>
                     <label>Recherche</label>
                     <input value={term} onChange={handleChange} />
                 </form>
             </div>
         </div>
     );
-};
+}
 
 export default SearchBar;
