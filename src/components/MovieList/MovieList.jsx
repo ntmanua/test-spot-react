@@ -3,17 +3,17 @@ const MovieList = ({ moviesData }) => {
         return (
             <article
                 key={movie.id}
-                className='overflow-hidden rounded-lg shadow transition hover:shadow-lg'
+                className='w-5/6     overflow-hidden rounded-lg shadow transition hover:shadow-lg'
             >
                 <img
                     alt={movie.title}
                     src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-                    className='h-56 w-full object-cover'
+                    className='h-auto w-full object-cover'
                 />
 
                 <div className='bg-white p-4 sm:p-6'>
                     <time
-                        dateTime='2022-10-10'
+                        dateTime={movie.release_date}
                         className='block text-xs text-gray-500'
                     >
                         {movie.release_date}
@@ -32,7 +32,11 @@ const MovieList = ({ moviesData }) => {
             </article>
         );
     });
-    return <div>{showMovies}</div>;
+    return (
+        <div class='p-4 grid grid-cols-1 gap-1 lg:grid-cols-4 lg:gap-1'>
+            {showMovies}
+        </div>
+    );
 };
 
 export default MovieList;
