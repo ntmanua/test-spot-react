@@ -1,15 +1,16 @@
 .container {
     width: 100%;
     display: flex;
-    justify-content: center;
+    background-color: rgb(30 41 59);
 }
-
 .searchBar {
     width: 30%;
     border: 1px solid lightgray;
     border-radius: 5px;
     padding: 10px;
-    margin-top: 30px;
+    margin: 70px 0 70px 70px;
+    color: #fff;
+    font-size: x-large;
 }
 
 .searchBar form {
@@ -19,4 +20,5 @@
 
 .searchBar input {
     padding: 5px;
+    color: black;
 }

@@ -32,7 +32,7 @@ const MovieList = ({ moviesData }) => {
                             </h3>
                         </a>
 
-                        <p className='mt-2 line-clamp-3 text-sm/relaxed text-gray-700 text-[20px]'>
+                        <p className='mt-2 line-clamp-5 text-sm/relaxed text-gray-700 text-[20px]'>
                             {movie.overview}
                         </p>
                     </div>
@@ -41,7 +41,7 @@ const MovieList = ({ moviesData }) => {
         );
     });
     return (
-        <div class='bg-gray-900 p-4 grid grid-cols-1 gap-2 lg:grid-cols-3 lg:gap-10'>
+        <div class='bg-slate-800 p-4 grid grid-cols-1 gap-2 lg:grid-cols-3 lg:gap-10'>
             {showMovies}
         </div>
     );
