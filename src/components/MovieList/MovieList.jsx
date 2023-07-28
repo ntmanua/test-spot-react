@@ -1,5 +1,9 @@
 const MovieList = ({ moviesData }) => {
     const showMovies = moviesData.map((movie) => {
+        const year = movie.release_date.split('-')[0];
+        const month = movie.release_date.split('-')[1];
+        const day = movie.release_date.split('-')[2];
+
         return (
             <article
                 key={movie.id}
@@ -7,12 +11,14 @@ const MovieList = ({ moviesData }) => {
             >
                 <div className='rotate-180 p-2 [writing-mode:_vertical-lr]'>
                     <time
-                        datetime={movie.release_date}
-                        className='flex items-center justify-between gap-4 text-xs font-bold uppercase text-gray-900'
+                        dateTime={movie.release_date}
+                        className='flex items-center justify-between gap-4 text-xl font-bold uppercase text-gray-900'
                     >
-                        <span>2022</span>
+                        <span>{year}</span>
                         <span className='w-px flex-1 bg-gray-900/10'></span>
-                        <span>Oct 10</span>
+                        <span>
+                            {month} / {day}
+                        </span>
                     </time>
                 </div>
 
@@ -40,8 +46,9 @@ const MovieList = ({ moviesData }) => {
             </article>
         );
     });
+
     return (
-        <div class='bg-slate-800 p-4 grid grid-cols-1 gap-2 lg:grid-cols-3 lg:gap-10'>
+        <div className='h-auto w-full bg-slate-800 p-4 grid grid-cols-1 gap-2 lg:grid-cols-3 lg:gap-10'>
             {showMovies}
         </div>
     );
