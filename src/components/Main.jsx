@@ -6,11 +6,17 @@ const Main = () => {
 
     useEffect(() => {
         const fetchData = async () => {
-            const key = '30bd5b107af7a883b3777693032f3fac';
-            let term = 'christopher nolan';
+            let term = 'dicaprio';
+
             try {
                 const response = await axios.get(
-                    `https://api.themoviedb.org/3/search/person?api_key=${key}&query=${term}`
+                    `https://api.themoviedb.org/3/search/movie?`,
+                    {
+                        params: {
+                            api_key: '30bd5b107af7a883b3777693032f3fac',
+                            query: term,
+                        },
+                    }
                 );
 
                 if (response.data) {
