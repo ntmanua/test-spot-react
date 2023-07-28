@@ -6,7 +6,7 @@ import MovieList from './MovieList/MovieList';
 const fetchData = async (term) => {
     try {
         const response = await axios.get(
-            `https://api.themoviedb.org/3/search/multi?`,
+            `https://api.themoviedb.org/3/search/movie?`,
             {
                 params: {
                     api_key: '30bd5b107af7a883b3777693032f3fac',
