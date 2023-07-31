@@ -7,7 +7,7 @@ const MovieList = ({ moviesData }) => {
         return (
             <article
                 key={movie.id}
-                className='flex bg-white transition hover:shadow-xl sm h-full'
+                className='flex bg-white transition hover:shadow-xl sm h-96'
             >
                 <div className='rotate-180 p-2 [writing-mode:_vertical-lr]'>
                     <time
@@ -48,7 +48,7 @@ const MovieList = ({ moviesData }) => {
     });
 
     return (
-        <div className='h-auto w-full bg-slate-800 p-4 grid grid-cols-1 gap-2 lg:grid-cols-3 lg:gap-10'>
+        <div className='h-custom w-full bg-slate-800 p-4 grid grid-cols-1 gap-2 lg:grid-cols-3 lg:gap-10'>
             {showMovies}
         </div>
     );
