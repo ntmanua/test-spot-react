@@ -16,9 +16,8 @@ const fetchMovies = async (term) => {
             return [];
         }
     } catch (error) {
-        // Gérer l'erreur si la requête échoue
         console.error('Erreur lors de la récupération des données :', error);
-        throw new Error("Une erreur s'est produite lors de la requête.");
+        throw new Error("Une erreur s'est produite");
     }
 };
 
@@ -37,12 +36,11 @@ const getActorId = async (term) => {
             console.log(response.data.results[0].id);
             return response.data.results[0].id;
         } else {
-            // Handle the case where 'results' is not available in the response
             console.log("No 'results' found in the response.");
         }
     } catch (error) {
-        // Handle the error if the request fails
-        console.error('Error fetching data:', error);
+        console.error('Erreur lors de la récupération des données :', error);
+        throw new Error("Une erreur s'est produite");
     }
 };
 const fetchMoviesByActor = async (term) => {
@@ -56,16 +54,15 @@ const fetchMoviesByActor = async (term) => {
                 },
             }
         );
-        if (response.data) {
+        if (response.data.cast.length > 0) {
             console.log(response.data.cast);
             return response.data.cast;
         } else {
-            // Handle the case where 'results' is not available in the response
             console.log("No 'results' found in the response.");
         }
     } catch (error) {
-        // Handle the error if the request fails
-        console.error('Error fetching data:', error);
+        console.error('Erreur lors de la récupération des données :', error);
+        throw new Error("Une erreur s'est produite");
     }
 };
 

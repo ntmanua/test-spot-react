@@ -21,17 +21,28 @@ const SearchSection = () => {
                     setError('Aucun résultat');
                     setMoviesData([]);
                 } else {
-                    console.log(res);
                     sortByDate(res);
                     setMoviesData(res);
                     setError('');
                 }
             } catch (error) {
                 setError(error.message);
+                setMoviesData([]);
             }
         } else if (selectedCheckbox === 'actor') {
-            const res = await fetchMoviesByActor(term);
-            setMoviesData(res);
+            try {
+                const res = await fetchMoviesByActor(term);
+                if (res.length === 0) {
+                    setError('Aucun résultat');
+                    setMoviesData([]);
+                } else {
+                    setMoviesData(res);
+                    setError('');
+                }
+            } catch (error) {
+                setError(error.message);
+                setMoviesData([]);
+            }
         }
     };
 
