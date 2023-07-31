@@ -1,7 +1,7 @@
-import styles from './SearchBar.module.css';
 import { useState } from 'react';
-
-function SearchBar({ term, setTerm, onSubmit }) {
+import styles from './SearchBar.module.css';
+import Checkbox from '../Checkbox/Checkbox';
+function SearchBar({ term, setTerm, onSubmit, selectedCheckbox, setCheckbox }) {
     const handleFormSubmit = (event) => {
         event.preventDefault();
 
@@ -17,6 +17,10 @@ function SearchBar({ term, setTerm, onSubmit }) {
             <div className={styles.searchBar}>
                 <form onSubmit={handleFormSubmit}>
                     <label>Recherche</label>
+                    <Checkbox
+                        selectedCheckbox={selectedCheckbox}
+                        setCheckbox={setCheckbox}
+                    />
                     <input value={term} onChange={handleChange} />
                 </form>
             </div>

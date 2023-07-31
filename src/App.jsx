@@ -1,4 +1,3 @@
-import './App.css';
 import Header from './components/Header/Header';
 import SearchSection from './components/SearchSection';
 import Footer from './components/Footer';

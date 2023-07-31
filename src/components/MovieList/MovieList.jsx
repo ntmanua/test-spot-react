@@ -1,3 +1,4 @@
+import affiche from '@/assets/affiche_defaut.svg';
 const MovieList = ({ moviesData }) => {
     const showMovies = moviesData.map((movie) => {
         const year = movie.release_date.split('-')[0];
@@ -25,7 +26,11 @@ const MovieList = ({ moviesData }) => {
                 <div className='hidden sm:block sm:w-200 sm:basis-56'>
                     <img
                         alt={movie.title}
-                        src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+                        src={
+                            movie.poster_path
+                                ? `https://image.tmdb.org/t/p/w500${movie.poster_path}`
+                                : { affiche }
+                        }
                         className='h-auto w-full object-cover'
                     />
                 </div>

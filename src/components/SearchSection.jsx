@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import styles from './SearchSection.module.css';
 import SearchBar from './SearchBar/SearchBar';
 import MovieList from './MovieList/MovieList';
@@ -8,15 +8,27 @@ const SearchSection = () => {
     const [moviesData, setMoviesData] = useState([]);
     const [term, setTerm] = useState('');
 
+    const [selectedCheckbox, setCheckbox] = useState('movie');
+
     const handleSubmit = async () => {
-        const res = await fetchMoviesByActor(term);
-        setMoviesData(res);
-        console.log(res);
+        if (selectedCheckbox === 'movie') {
+            const res = await fetchMovies(term);
+            setMoviesData(res);
+        } else if (selectedCheckbox === 'actor') {
+            const res = await fetchMoviesByActor(term);
+            setMoviesData(res);
+        }
     };
 
     return (
         <div className={styles.container}>
-            <SearchBar term={term} setTerm={setTerm} onSubmit={handleSubmit} />
+            <SearchBar
+                term={term}
+                setTerm={setTerm}
+                onSubmit={handleSubmit}
+                selectedCheckbox={selectedCheckbox}
+                setCheckbox={setCheckbox}
+            />
             <MovieList moviesData={moviesData} />
         </div>
     );
