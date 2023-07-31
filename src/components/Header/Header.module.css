@@ -17,12 +17,14 @@
 .title h1 {
     font-size: 4.5em;
     font-weight: 600;
+    transform: translateY(45px);
 }
 .title h2 {
-    font-size: 2.1em;
+    font-size: 2em;
+    transform: translateY(-80px);
 }
 
 .logo {
-    width: 110px;
+    width: 120px;
     margin-right: 10px;
 }
