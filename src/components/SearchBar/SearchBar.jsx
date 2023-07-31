@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import styles from './SearchBar.module.css';
 import Checkbox from '../Checkbox/Checkbox';
 function SearchBar({ term, setTerm, onSubmit, selectedCheckbox, setCheckbox }) {

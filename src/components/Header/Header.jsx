@@ -6,8 +6,8 @@ const Header = () => {
         <div className={styles.container}>
             <img className={styles.logo} src={logo} alt='logo' />
             <div className={styles.title}>
-                <h1>popcorn</h1>
-                <h2> Quoi mater avec ton ?</h2>
+                <h1>popcorn ?</h1>
+                <h2> Quoi mater avec ton</h2>
             </div>
         </div>
     );

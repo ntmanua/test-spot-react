@@ -11,12 +11,24 @@ const SearchSection = () => {
 
     const [selectedCheckbox, setCheckbox] = useState('movie');
 
+    const [error, setError] = useState('');
+
     const handleSubmit = async () => {
         if (selectedCheckbox === 'movie') {
-            const res = await fetchMovies(term);
-            console.log(res);
-            sortByDate(res);
-            setMoviesData(res);
+            try {
+                const res = await fetchMovies(term);
+                if (res.length === 0) {
+                    setError('Aucun résultat');
+                    setMoviesData([]);
+                } else {
+                    console.log(res);
+                    sortByDate(res);
+                    setMoviesData(res);
+                    setError('');
+                }
+            } catch (error) {
+                setError(error.message);
+            }
         } else if (selectedCheckbox === 'actor') {
             const res = await fetchMoviesByActor(term);
             setMoviesData(res);
@@ -32,6 +44,7 @@ const SearchSection = () => {
                 selectedCheckbox={selectedCheckbox}
                 setCheckbox={setCheckbox}
             />
+            {!!error && <p>{error}</p>}
             <MovieList moviesData={moviesData} />
         </div>
     );

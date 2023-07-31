@@ -15,7 +15,7 @@
     padding-right: 30px;
 }
 .title h1 {
-    font-size: 4.5em;
+    font-size: 5em;
     font-weight: 600;
     transform: translateY(45px);
 }
@@ -25,6 +25,6 @@
 }
 
 .logo {
-    width: 120px;
+    width: 140px;
     margin-right: 10px;
 }

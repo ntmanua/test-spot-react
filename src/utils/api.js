@@ -1,5 +1,4 @@
 import axios from 'axios';
-
 const fetchMovies = async (term) => {
     try {
         const response = await axios.get(
@@ -11,15 +10,15 @@ const fetchMovies = async (term) => {
                 },
             }
         );
-        if (response.data) {
+        if (response.data.results.length > 0) {
             return response.data.results;
         } else {
-            // Handle the case where 'results' is not available in the response
-            console.log("No 'results' found in the response.");
+            return [];
         }
     } catch (error) {
-        // Handle the error if the request fails
-        console.error('Error fetching data:', error);
+        // Gérer l'erreur si la requête échoue
+        console.error('Erreur lors de la récupération des données :', error);
+        throw new Error("Une erreur s'est produite lors de la requête.");
     }
 };
 

@@ -1,6 +1,6 @@
 import affiche from '@/assets/affiche_defaut.svg';
 const MovieList = ({ moviesData }) => {
-    const showMovies = moviesData.map((movie) => {
+    const showMovies = moviesData.map((movie, index) => {
         const year = movie.release_date.split('-')[0];
         const month = movie.release_date.split('-')[1];
         const day = movie.release_date.split('-')[2];
@@ -8,7 +8,9 @@ const MovieList = ({ moviesData }) => {
         return (
             <article
                 key={movie.id}
-                className='flex bg-white transition hover:shadow-xl sm h-96'
+                className={`flex bg-white transition-all delay-${
+                    index + 1
+                } duration-500 hover:shadow-xl sm h-96`}
             >
                 <div className='rotate-180 p-2 [writing-mode:_vertical-lr]'>
                     <time
