@@ -32,10 +32,10 @@ const getActorId = async (term) => {
                 },
             }
         );
-        if (response.data) {
+        if (response.data.results.length > 0) {
             return response.data.results[0].id;
         } else {
-            console.log("No 'results' found in the response.");
+            throw new Error("No 'results' found in the response.");
         }
     } catch (error) {
         console.error('Erreur lors de la récupération des données :', error);

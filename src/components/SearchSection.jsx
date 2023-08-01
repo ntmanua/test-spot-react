@@ -25,8 +25,7 @@ const SearchSection = () => {
                     setError('Aucun résultat');
                     setMoviesData([]);
                 } else {
-                    const sortedMovies = sortMovies(res, selectedOption);
-                    console.log(res);
+                    sortMovies(res, selectedOption);
                     setMoviesData(res);
                     setError('');
                 }
@@ -53,7 +52,7 @@ const SearchSection = () => {
     };
     useEffect(() => {
         handleChange();
-    }, [selectedOption]);
+    }, [selectedOption, handleChange]);
 
     return (
         <div className={styles.container}>
