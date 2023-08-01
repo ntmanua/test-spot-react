@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 import styles from './SearchSection.module.css';
 import SearchBar from './SearchBar/SearchBar';
 import MovieList from './MovieList/MovieList';
-import Dropdown from './Dropdown/Dropdown';
 import { fetchMovies, fetchMoviesByActor } from '@/utils/api';
 import { sortByDate, sortByRating } from '@/utils/sort';
 
@@ -69,10 +68,7 @@ const SearchSection = () => {
                 handleChange={handleChange}
                 selectedCheckbox={selectedCheckbox}
                 setCheckbox={setCheckbox}
-            />
-            <Dropdown
                 selectedOption={selectedOption}
-                handleChange={handleChange}
             />
             {!!error && <p>{error}</p>}
             <MovieList moviesData={moviesData} />

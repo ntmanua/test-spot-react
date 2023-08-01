@@ -24,6 +24,11 @@
     color: black;
 }
 
+.optionsDiv {
+    display: flex;
+    margin-bottom: 20px;
+}
+
 @media (max-width: 767px) {
     .searchBar {
         width: 80%;

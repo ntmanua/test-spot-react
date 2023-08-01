@@ -1,15 +1,29 @@
 import styles from './SearchBar.module.css';
 import Checkbox from '../Checkbox/Checkbox';
-function SearchBar({ term, handleChange, selectedCheckbox, setCheckbox }) {
+import Dropdown from '../Dropdown/Dropdown';
+function SearchBar({
+    term,
+    handleChange,
+    selectedCheckbox,
+    setCheckbox,
+    selectedOption,
+}) {
     return (
         <div className={styles.container}>
             <div className={styles.searchBar}>
                 <form>
                     <label>Filtres tes recherches:</label>
-                    <Checkbox
-                        selectedCheckbox={selectedCheckbox}
-                        setCheckbox={setCheckbox}
-                    />
+                    <div className={styles.optionsDiv}>
+                        <Checkbox
+                            selectedCheckbox={selectedCheckbox}
+                            setCheckbox={setCheckbox}
+                        />
+                        <Dropdown
+                            selectedOption={selectedOption}
+                            handleChange={handleChange}
+                        />
+                    </div>
+                    <label>Cherche ton film ici:</label>
                     <input value={term} onChange={handleChange} />
                 </form>
             </div>
