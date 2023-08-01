@@ -37,15 +37,15 @@ const MovieList = ({ moviesData }) => {
                     />
                 </div>
 
-                <div className='flex flex-1 flex-col justify-between'>
-                    <div className='border-s border-gray-900/10 p-4 sm:border-l-transparent sm:p-6'>
+                <div className='flex flex-1 flex-col justify-between overflow-hidden'>
+                    <div className='h-full border-s border-gray-900/10 p-4 sm:border-l-transparent sm:p-6'>
                         <a href='#'>
                             <h3 className='font-bold uppercase text-gray-900 text-[25px]'>
                                 {movie.title}
                             </h3>
                         </a>
 
-                        <p className='mt-2 line-clamp-5 text-sm/relaxed text-gray-700 text-[20px]'>
+                        <p className='mt-2 text-sm/relaxed text-gray-700 text-[20px]'>
                             {movie.overview}
                         </p>
                     </div>
