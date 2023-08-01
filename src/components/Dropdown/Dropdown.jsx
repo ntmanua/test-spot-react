@@ -1,6 +1,10 @@
 import styles from './Dropdown.module.css';
 
-const Dropdown = ({ selectedOption, handleChange }) => {
+const Dropdown = ({ selectedOption, setOption }) => {
+    const handleOptionChange = (event) => {
+        setOption(event.target.value);
+    };
+
     return (
         <div className={styles.container}>
             <h1>Trier par:</h1>
@@ -8,7 +12,7 @@ const Dropdown = ({ selectedOption, handleChange }) => {
             <select
                 className={styles.selection}
                 value={selectedOption}
-                onChange={handleChange}
+                onChange={handleOptionChange}
             >
                 <option value=''>...</option>
                 <option value='option1'>Du plus jeune aux plus vieux</option>

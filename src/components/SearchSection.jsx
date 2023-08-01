@@ -3,7 +3,7 @@ import styles from './SearchSection.module.css';
 import SearchBar from './SearchBar/SearchBar';
 import MovieList from './MovieList/MovieList';
 import { fetchMovies, fetchMoviesByActor } from '@/utils/api';
-import { sortByDate, sortByRating } from '@/utils/sort';
+import { sortMovies } from '@/utils/sort';
 
 const SearchSection = () => {
     const [moviesData, setMoviesData] = useState([]);
@@ -15,8 +15,8 @@ const SearchSection = () => {
     const [error, setError] = useState('');
 
     const handleChange = async (event) => {
-        setTerm(event.target.value);
-        setOption(event.target.value);
+        const newTerm = event ? event.target.value : term;
+        setTerm(newTerm);
 
         if (selectedCheckbox === 'movie') {
             try {
@@ -25,11 +25,8 @@ const SearchSection = () => {
                     setError('Aucun résultat');
                     setMoviesData([]);
                 } else {
-                    if (selectedOption === 'option1') {
-                        sortByDate(res);
-                    } else if (selectedOption === 'option2') {
-                        sortByRating(res);
-                    }
+                    const sortedMovies = sortMovies(res, selectedOption);
+                    console.log(res);
                     setMoviesData(res);
                     setError('');
                 }
@@ -44,11 +41,7 @@ const SearchSection = () => {
                     setError('Aucun résultat');
                     setMoviesData([]);
                 } else {
-                    if (selectedOption === 'option1') {
-                        sortByDate(res);
-                    } else if (selectedOption === 'option2') {
-                        sortByRating(res);
-                    }
+                    const sortedMovies = sortMovies(res, selectedOption);
                     setMoviesData(res);
                     setError('');
                 }
@@ -59,8 +52,9 @@ const SearchSection = () => {
         }
     };
     useEffect(() => {
-        handleChange;
+        handleChange();
     }, [selectedOption]);
+
     return (
         <div className={styles.container}>
             <SearchBar
@@ -69,6 +63,7 @@ const SearchSection = () => {
                 selectedCheckbox={selectedCheckbox}
                 setCheckbox={setCheckbox}
                 selectedOption={selectedOption}
+                setOption={setOption}
             />
             {!!error && <p>{error}</p>}
             <MovieList moviesData={moviesData} />

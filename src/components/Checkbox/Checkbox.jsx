@@ -7,7 +7,7 @@ const Checkbox = ({ selectedCheckbox, setCheckbox }) => {
 
     return (
         <div className={styles.container}>
-            <lablel>Rechercher par:</lablel>
+            <label>Rechercher par:</label>
             <label>
                 <input
                     type='checkbox'

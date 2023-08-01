@@ -7,6 +7,7 @@ function SearchBar({
     selectedCheckbox,
     setCheckbox,
     selectedOption,
+    setOption,
 }) {
     return (
         <div className={styles.container}>
@@ -20,7 +21,7 @@ function SearchBar({
                         />
                         <Dropdown
                             selectedOption={selectedOption}
-                            handleChange={handleChange}
+                            setOption={setOption}
                         />
                     </div>
                     <label>Cherche ton film ici:</label>

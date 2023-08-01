@@ -1,3 +1,5 @@
+import MovieList from '../components/MovieList/MovieList';
+
 const compareDates = (a, b) => {
     const dateA = Date.parse(a.release_date);
     const dateB = Date.parse(b.release_date);
@@ -18,4 +20,13 @@ const sortByRating = (movies) => {
     movies.sort(compareRatings);
 };
 
-export { sortByDate, sortByRating };
+const sortMovies = (movies, option) => {
+    if (option === 'option1') {
+        return sortByDate(movies);
+    } else if (option === 'option2') {
+        return sortByRating(movies);
+    } else {
+        return movies;
+    }
+};
+export { sortMovies };
