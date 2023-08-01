@@ -1,20 +1,10 @@
 import styles from './SearchBar.module.css';
 import Checkbox from '../Checkbox/Checkbox';
-function SearchBar({ term, setTerm, onSubmit, selectedCheckbox, setCheckbox }) {
-    const handleFormSubmit = (event) => {
-        event.preventDefault();
-
-        onSubmit(term);
-    };
-
-    const handleChange = (event) => {
-        setTerm(event.target.value);
-    };
-
+function SearchBar({ term, handleChange, selectedCheckbox, setCheckbox }) {
     return (
         <div className={styles.container}>
             <div className={styles.searchBar}>
-                <form onSubmit={handleFormSubmit}>
+                <form>
                     <label>Recherche</label>
                     <Checkbox
                         selectedCheckbox={selectedCheckbox}

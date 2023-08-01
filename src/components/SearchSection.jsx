@@ -13,7 +13,8 @@ const SearchSection = () => {
 
     const [error, setError] = useState('');
 
-    const handleSubmit = async () => {
+    const handleChange = async (event) => {
+        setTerm(event.target.value);
         if (selectedCheckbox === 'movie') {
             try {
                 const res = await fetchMovies(term);
@@ -51,7 +52,7 @@ const SearchSection = () => {
             <SearchBar
                 term={term}
                 setTerm={setTerm}
-                onSubmit={handleSubmit}
+                handleChange={handleChange}
                 selectedCheckbox={selectedCheckbox}
                 setCheckbox={setCheckbox}
             />
