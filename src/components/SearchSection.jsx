@@ -1,20 +1,24 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import styles from './SearchSection.module.css';
 import SearchBar from './SearchBar/SearchBar';
 import MovieList from './MovieList/MovieList';
+import Dropdown from './Dropdown/Dropdown';
 import { fetchMovies, fetchMoviesByActor } from '@/utils/api';
-import { sortByDate } from '@/utils/sort';
+import { sortByDate, sortByRating } from '@/utils/sort';
 
 const SearchSection = () => {
     const [moviesData, setMoviesData] = useState([]);
     const [term, setTerm] = useState('');
 
     const [selectedCheckbox, setCheckbox] = useState('movie');
+    const [selectedOption, setOption] = useState('option');
 
     const [error, setError] = useState('');
 
     const handleChange = async (event) => {
         setTerm(event.target.value);
+        setOption(event.target.value);
+
         if (selectedCheckbox === 'movie') {
             try {
                 const res = await fetchMovies(term);
@@ -22,7 +26,11 @@ const SearchSection = () => {
                     setError('Aucun résultat');
                     setMoviesData([]);
                 } else {
-                    sortByDate(res);
+                    if (selectedOption === 'option1') {
+                        sortByDate(res);
+                    } else if (selectedOption === 'option2') {
+                        sortByRating(res);
+                    }
                     setMoviesData(res);
                     setError('');
                 }
@@ -37,6 +45,11 @@ const SearchSection = () => {
                     setError('Aucun résultat');
                     setMoviesData([]);
                 } else {
+                    if (selectedOption === 'option1') {
+                        sortByDate(res);
+                    } else if (selectedOption === 'option2') {
+                        sortByRating(res);
+                    }
                     setMoviesData(res);
                     setError('');
                 }
@@ -46,15 +59,20 @@ const SearchSection = () => {
             }
         }
     };
-
+    useEffect(() => {
+        handleChange;
+    }, [selectedOption]);
     return (
         <div className={styles.container}>
             <SearchBar
                 term={term}
-                setTerm={setTerm}
                 handleChange={handleChange}
                 selectedCheckbox={selectedCheckbox}
                 setCheckbox={setCheckbox}
+            />
+            <Dropdown
+                selectedOption={selectedOption}
+                handleChange={handleChange}
             />
             {!!error && <p>{error}</p>}
             <MovieList moviesData={moviesData} />

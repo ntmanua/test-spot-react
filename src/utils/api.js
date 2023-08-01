@@ -33,7 +33,6 @@ const getActorId = async (term) => {
             }
         );
         if (response.data) {
-            console.log(response.data.results[0].id);
             return response.data.results[0].id;
         } else {
             console.log("No 'results' found in the response.");
@@ -55,7 +54,6 @@ const fetchMoviesByActor = async (term) => {
             }
         );
         if (response.data.cast.length > 0) {
-            console.log(response.data.cast);
             return response.data.cast;
         } else {
             console.log("No 'results' found in the response.");
