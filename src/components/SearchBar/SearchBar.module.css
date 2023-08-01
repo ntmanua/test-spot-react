@@ -1,7 +1,7 @@
 .container {
     width: 100%;
     display: flex;
-    background-color: rgb(30 41 59);
+    background-color: #fff;
 }
 .searchBar {
     width: 600px;
@@ -11,6 +11,7 @@
     margin: 70px 0 70px 70px;
     color: #fff;
     font-size: x-large;
+    background-color: rgb(30 41 59);
 }
 
 .searchBar form {

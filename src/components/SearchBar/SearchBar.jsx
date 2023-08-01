@@ -5,7 +5,7 @@ function SearchBar({ term, handleChange, selectedCheckbox, setCheckbox }) {
         <div className={styles.container}>
             <div className={styles.searchBar}>
                 <form>
-                    <label>Recherche</label>
+                    <label>Filtres tes recherches:</label>
                     <Checkbox
                         selectedCheckbox={selectedCheckbox}
                         setCheckbox={setCheckbox}
