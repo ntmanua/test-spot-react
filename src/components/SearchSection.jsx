@@ -35,7 +35,8 @@ const SearchSection = () => {
                     setError('');
                 }
             } catch (error) {
-                setError(error.message);
+                console.log(error.message);
+                setError('Aucun résultat');
                 setMoviesData([]);
             }
         } else if (selectedCheckbox === 'actor') {
@@ -49,12 +50,13 @@ const SearchSection = () => {
                         setMoviesData([]);
                     }
                 } else {
-                    const sortedMovies = sortMovies(res, selectedOption);
+                    sortMovies(res, selectedOption);
                     setMoviesData(res);
                     setError('');
                 }
             } catch (error) {
-                setError(error.message);
+                console.log(error.message);
+                setError('Aucun résultat');
                 setMoviesData([]);
             }
         }
@@ -62,7 +64,7 @@ const SearchSection = () => {
 
     useEffect(() => {
         handleChange();
-    }, [selectedOption, selectedCheckbox]);
+    }, [term, selectedOption, selectedCheckbox]);
 
     return (
         <div className={styles.container}>
@@ -75,11 +77,7 @@ const SearchSection = () => {
                 setOption={setOption}
             />
             {!!error && <p>{error}</p>}
-            <MovieList
-                moviesData={moviesData}
-                handleChange={handleChange}
-                selectedOption={selectedOption}
-            />
+            <MovieList moviesData={moviesData} />
         </div>
     );
 };

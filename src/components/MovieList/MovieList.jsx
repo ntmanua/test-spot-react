@@ -7,7 +7,7 @@ const MovieList = ({ moviesData }) => {
         const day = movie.release_date.split('-')[2];
 
         return (
-            <article class='flex bg-white transition hover:shadow-xl border-2'>
+            <article className='flex bg-white transition hover:shadow-xl border-2'>
                 <div className='rotate-180 p-2 [writing-mode:_vertical-lr]'>
                     <time
                         dateTime={movie.release_date}
@@ -57,7 +57,7 @@ const MovieList = ({ moviesData }) => {
                             {movie.title}
                         </h3>
 
-                        <p className='mt-2 text-sm/relaxed text-gray-700 text-[20px] overflow-hidden'>
+                        <p className='mt-2 text-xs/relaxed line-clamp-6 text-gray-700'>
                             {movie.overview}
                         </p>
                     </div>

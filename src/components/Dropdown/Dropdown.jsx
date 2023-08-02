@@ -15,7 +15,7 @@ const Dropdown = ({ selectedOption, setOption }) => {
                 onChange={handleOptionChange}
             >
                 <option value=''>...</option>
-                <option value='option1'>Du plus jeune aux plus vieux</option>
+                <option value='option1'>Du plus au moins récent</option>
                 <option value='option2'>Du meilleur au plus nul</option>
             </select>
         </div>
