@@ -66,7 +66,7 @@ const SearchSection = () => {
     );
 
     useEffect(() => {
-        handleChange;
+        handleChange();
     }, [term, selectedOption, selectedCheckbox, handleChange]);
 
     return (
