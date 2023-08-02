@@ -1,4 +1,4 @@
-import affiche from '@/assets/affiche_defaut.svg';
+import affiche from '../../assets/affiche_defaut.svg';
 const MovieList = ({ moviesData }) => {
     const showMovies = moviesData.map((movie) => {
         const year = movie.release_date.split('-')[0];
