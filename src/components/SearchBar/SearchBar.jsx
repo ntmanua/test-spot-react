@@ -13,7 +13,7 @@ function SearchBar({
         <div className={styles.container}>
             <div className={styles.searchBar}>
                 <form>
-                    <label htmlFor='filtre'>Filtres tes recherches:</label>
+                    <label htmlFor='filtre'>Filtre:</label>
                     <div id='filtre' className={styles.optionsDiv}>
                         <Checkbox
                             selectedCheckbox={selectedCheckbox}
@@ -24,9 +24,10 @@ function SearchBar({
                             setOption={setOption}
                         />
                     </div>
-                    <label htmlFor='recherche'>Tape ta recherche:</label>
+                    <label htmlFor='recherche'>Recherche:</label>
                     <input
                         id='recherche'
+                        className={styles.searchInput}
                         value={term}
                         onChange={handleChange}
                     />

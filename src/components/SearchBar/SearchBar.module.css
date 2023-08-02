@@ -18,7 +18,7 @@
     flex-direction: column;
 }
 
-.searchBar input {
+.searchBar form input {
     padding: 5px;
     color: rgb(30 41 59);
     border: 1px solid rgb(30 41 59);
@@ -27,8 +27,14 @@
 
 .optionsDiv {
     display: flex;
-    margin-bottom: 20px;
+    margin: auto;
 }
+
+.searchInput {
+    width: 90%;
+    margin: auto;
+}
+
 @media (max-width: 767px) {
     .searchBar {
         width: 80%;
