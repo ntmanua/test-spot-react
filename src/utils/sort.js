@@ -1,5 +1,3 @@
-import MovieList from '../components/MovieList/MovieList';
-
 const compareDates = (a, b) => {
     const dateA = Date.parse(a.release_date);
     const dateB = Date.parse(b.release_date);

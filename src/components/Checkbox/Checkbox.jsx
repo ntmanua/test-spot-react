@@ -1,5 +1,4 @@
 import styles from './Checkbox.module.css';
-import { useState } from 'react';
 const Checkbox = ({ selectedCheckbox, setCheckbox }) => {
     const handleCheckboxChange = (checkBoxValue) => {
         setCheckbox(checkBoxValue);

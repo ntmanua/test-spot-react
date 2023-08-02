@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import styles from './SearchSection.module.css';
 import SearchBar from './SearchBar/SearchBar';
 import MovieList from './MovieList/MovieList';
@@ -15,56 +15,59 @@ const SearchSection = () => {
     const [error, setError] = useState('');
     const [isFirstLoad, setIsFirstLoad] = useState(true);
 
-    const handleChange = async (event) => {
-        const newTerm = event ? event.target.value : term;
-        setTerm(newTerm);
+    const handleChange = useCallback(
+        async (event) => {
+            const newTerm = event ? event.target.value : term;
+            setTerm(newTerm);
 
-        if (selectedCheckbox === 'movie') {
-            try {
-                const res = await fetchMovies(term);
-                if (res.length === 0) {
-                    if (isFirstLoad) {
-                        setIsFirstLoad(false);
+            if (selectedCheckbox === 'movie') {
+                try {
+                    const res = await fetchMovies(term);
+                    if (res.length === 0) {
+                        if (isFirstLoad) {
+                            setIsFirstLoad(false);
+                        } else {
+                            setError('Aucun résultat');
+                            setMoviesData([]);
+                        }
                     } else {
-                        setError('Aucun résultat');
-                        setMoviesData([]);
+                        sortMovies(res, selectedOption);
+                        setMoviesData(res);
+                        setError('');
                     }
-                } else {
-                    sortMovies(res, selectedOption);
-                    setMoviesData(res);
-                    setError('');
+                } catch (error) {
+                    console.log(error.message);
+                    setError('Aucun résultat');
+                    setMoviesData([]);
                 }
-            } catch (error) {
-                console.log(error.message);
-                setError('Aucun résultat');
-                setMoviesData([]);
-            }
-        } else if (selectedCheckbox === 'actor') {
-            try {
-                const res = await fetchMoviesByActor(term);
-                if (res.length === 0) {
-                    if (isFirstLoad) {
-                        setIsFirstLoad(false);
+            } else if (selectedCheckbox === 'actor') {
+                try {
+                    const res = await fetchMoviesByActor(term);
+                    if (res.length === 0) {
+                        if (isFirstLoad) {
+                            setIsFirstLoad(false);
+                        } else {
+                            setError('Aucun résultat');
+                            setMoviesData([]);
+                        }
                     } else {
-                        setError('Aucun résultat');
-                        setMoviesData([]);
+                        sortMovies(res, selectedOption);
+                        setMoviesData(res);
+                        setError('');
                     }
-                } else {
-                    sortMovies(res, selectedOption);
-                    setMoviesData(res);
-                    setError('');
+                } catch (error) {
+                    console.log(error.message);
+                    setError('Aucun résultat');
+                    setMoviesData([]);
                 }
-            } catch (error) {
-                console.log(error.message);
-                setError('Aucun résultat');
-                setMoviesData([]);
             }
-        }
-    };
+        },
+        [term, selectedOption, selectedCheckbox, isFirstLoad]
+    );
 
     useEffect(() => {
-        handleChange();
-    }, [term, selectedOption, selectedCheckbox]);
+        handleChange;
+    }, [term, selectedOption, selectedCheckbox, handleChange]);
 
     return (
         <div className={styles.container}>
