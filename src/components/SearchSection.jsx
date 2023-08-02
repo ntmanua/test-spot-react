@@ -2,8 +2,8 @@ import { useState, useEffect, useCallback } from 'react';
 import styles from './SearchSection.module.css';
 import SearchBar from './SearchBar/SearchBar';
 import MovieList from './MovieList/MovieList';
-import { fetchMovies, fetchMoviesByActor } from '@/utils/api';
-import { sortMovies } from '@/utils/sort';
+import { fetchMovies, fetchMoviesByActor } from '@/utils/api.js';
+import { sortMovies } from '@/utils/sort.js';
 
 const SearchSection = () => {
     const [moviesData, setMoviesData] = useState([]);
