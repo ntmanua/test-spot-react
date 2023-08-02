@@ -13,8 +13,8 @@ function SearchBar({
         <div className={styles.container}>
             <div className={styles.searchBar}>
                 <form>
-                    <label>Filtres tes recherches:</label>
-                    <div className={styles.optionsDiv}>
+                    <label htmlFor='filtre'>Filtres tes recherches:</label>
+                    <div id='filtre' className={styles.optionsDiv}>
                         <Checkbox
                             selectedCheckbox={selectedCheckbox}
                             setCheckbox={setCheckbox}
@@ -24,8 +24,12 @@ function SearchBar({
                             setOption={setOption}
                         />
                     </div>
-                    <label>Cherche ton film ici:</label>
-                    <input value={term} onChange={handleChange} />
+                    <label htmlFor='recherche'>Tape ta recherche:</label>
+                    <input
+                        id='recherche'
+                        value={term}
+                        onChange={handleChange}
+                    />
                 </form>
             </div>
         </div>

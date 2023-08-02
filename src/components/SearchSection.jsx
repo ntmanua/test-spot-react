@@ -67,7 +67,7 @@ const SearchSection = () => {
 
     useEffect(() => {
         handleChange();
-    }, [term, selectedOption, selectedCheckbox, handleChange]);
+    }, [term, selectedOption, selectedCheckbox]);
 
     return (
         <div className={styles.container}>
