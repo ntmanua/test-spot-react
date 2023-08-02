@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import affiche from '@/assets/affiche_defaut.svg';
 const MovieList = ({ moviesData }) => {
     const showMovies = moviesData.map((movie, index) => {
@@ -56,7 +57,7 @@ const MovieList = ({ moviesData }) => {
                             {movie.title}
                         </h3>
 
-                        <p className='mt-2 text-sm/relaxed text-gray-700 text-[20px]'>
+                        <p className='mt-2 text-sm/relaxed text-gray-700 text-[20px] overflow-hidden'>
                             {movie.overview}
                         </p>
                     </div>
