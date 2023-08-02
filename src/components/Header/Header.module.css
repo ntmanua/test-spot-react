@@ -28,3 +28,23 @@
     width: 140px;
     margin-right: 10px;
 }
+
+@media (max-width: 767px) {
+    .container {
+        height: 150px;
+    }
+    .title {
+        padding-right: 40px;
+    }
+    .title h1 {
+        font-size: 3.5em;
+    }
+    .title h2 {
+        font-size: 1.4em;
+        transform: translateY(-50px);
+    }
+    .logo {
+        width: 90px;
+        transform: translateY(-5px);
+    }
+}

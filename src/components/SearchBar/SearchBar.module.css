@@ -6,7 +6,7 @@
 .searchBar {
     width: 700px;
     border: 3px solid rgb(30 41 59);
-    border-radius: 10px;
+    border-radius: 5px;
     padding: 10px;
     margin: 70px 0 70px 70px;
     color: rgb(30 41 59);
@@ -28,10 +28,11 @@
 .optionsDiv {
     display: flex;
     margin: auto;
+    flex-wrap: wrap;
 }
 
 .searchInput {
-    width: 90%;
+    width: 88%;
     margin: auto;
 }
 
